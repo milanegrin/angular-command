@@ -1,49 +1,58 @@
-<div class="container mt-4">
-  <mat-form-field appearance="fill" class="form-control">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Search columns command, description" #input>
-  </mat-form-field>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="container-fluid mt-4">
+  <div class="table-responsive-material">
+    <mat-form-field appearance="fill" class="form-control">
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search columns command, description" #input>
+    </mat-form-field>
+    <mat-table #table [dataSource]="dataSource" class="mt-4">
 
-    <!-- command Column -->
-    <ng-container matColumnDef="command">
-      <th mat-header-cell *matHeaderCellDef> Command </th>
-      <td mat-cell *matCellDef="let element"> <code>{{element.command}} </code></td>
-    </ng-container>
+      <!-- command Column -->
+      <ng-container matColumnDef="command">
+        <mat-header-cell *matHeaderCellDef> Command</mat-header-cell>
+        <mat-cell *matCellDef="let element"><code>{{element.command}} </code></mat-cell>
+      </ng-container>
 
-    <!-- description Column -->
-    <ng-container matColumnDef="description">
-      <th mat-header-cell *matHeaderCellDef> Description </th>
-      <td mat-cell *matCellDef="let element"> <mat-panel-description>{{element.description}}</mat-panel-description> </td>
-    </ng-container>
+      <!-- description Column -->
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-panel-description>{{element.description}}</mat-panel-description>
+        </mat-cell>
+      </ng-container>
 
-    <!-- example Column -->
-    <ng-container matColumnDef="example">
-      <th mat-header-cell *matHeaderCellDef> Example </th>
-      <td mat-cell *matCellDef="let element"> {{element.example}} </td>
-    </ng-container>
+      <!-- example Column -->
+      <ng-container matColumnDef="example">
+        <mat-header-cell *matHeaderCellDef> Example</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.example}} </mat-cell>
+      </ng-container>
 
-    <!-- Column example-->
-    <ng-container matColumnDef="url">
-      <th mat-header-cell *matHeaderCellDef> Url </th>
-      <td mat-cell *matCellDef="let element"> <a href="{{element.url}}" target="_blank"> {{element.url}} </a></td>
-    </ng-container>
+      <!-- Column example-->
+      <ng-container matColumnDef="url">
+        <mat-header-cell *matHeaderCellDef> Url</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <span class="url">
+            <a href="{{element.url}}" target="_blank"> {{element.url}} </a>
+          </span>
+        </mat-cell>
+      </ng-container>
 
-    <!-- Action -->
-    <ng-container matColumnDef="action">
-      <th mat-header-cell *matHeaderCellDef> Action </th>
-      <td mat-cell *matCellDef="let element">
-        <div>
+      <!-- Action -->
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <div>
           <span class="material-icons" (click)="edit(element)">
             edit
           </span>
-          <span class="material-icons" (click)="create()" >fiber_new</span>
-          <span class="material-icons" (click)="delete(element.id)" >delete</span>
-        </div>
-      </td>
-    </ng-container>
+            <span class="material-icons" (click)="create()">fiber_new</span>
+            <span class="material-icons" (click)="delete(element.id)">delete</span>
+          </div>
+        </mat-cell>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+
 </div>
