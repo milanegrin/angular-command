@@ -10,14 +10,16 @@
           "style": "scss"
         }
       },
-      "root": "/gitcommand",
+      "root": "",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/git-command",
+            "outputPath": "docs/",
+            "baseHref":"/angular-command/",
+            "deployUrl": "/angular-command/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -115,5 +117,6 @@
   },
   "cli": {
     "analytics": false
-  }
+  },
+  "defaultProject": "/angular-command"
 }
