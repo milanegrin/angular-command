@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "git-command": {
+      "hosting": {
+        "git-command": [
+          "git-command"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "git-command"
+  }
+}

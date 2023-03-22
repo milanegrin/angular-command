@@ -1,0 +1,29 @@
+<div class="container mt-4">
+  <h2 class="mt-4">Comandos Git</h2>
+  <form [formGroup]="form" class="mt-4">
+    <mat-form-field>
+      <mat-label>Command</mat-label>
+      <input required formControlName="command" [(ngModel)]="git.command" class="form-control" placeholder="Command" type="text" matInput />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea  required formControlName="description"
+                 [(ngModel)]="git.description"
+                 class="form-control" placeholder="Description"
+                 type="textarea" matInput>
+      </textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Example</mat-label>
+      <input matInput required formControlName="example" [(ngModel)]="git.example" class="form-control" placeholder="" type="text" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Url</mat-label>
+      <input matInput formControlName="url" [(ngModel)]="git.url" class="form-control" placeholder="url example" type="text" />
+    </mat-form-field>
+    <button type="button" mat-raised-button (click)="submit()" color="primary" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>
+
