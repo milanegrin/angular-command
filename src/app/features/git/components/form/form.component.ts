@@ -56,6 +56,8 @@ export class FormComponent implements OnInit{
         this.dialogRef.close();
       });
     }else{
+      this.git.url = this.git.url ? this.git.url : '';
+      console.log(this.git);
       this.fireStroreService.create(this.git).then(() => {
         this.openSnackBarService.openSnackBar("Update", "Success");
         this.dialogRef.close();
